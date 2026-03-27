@@ -3,6 +3,9 @@ import os
 import pytest
 import httpx
 from tests.settings import BASE_URL, join_url
+from dotenv import load_dotenv
+
+load_dotenv()
 
 @pytest.fixture(scope="session")
 def api_root() -> str:
