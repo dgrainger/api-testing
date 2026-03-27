@@ -9,6 +9,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+If you add libraries you need to import to any of your code, you want to add that library to the _requirements.txt_ file and run the **pip install** again.
+
 * Install VS Code
 * Open VS Code and install the following extensions:
     * Pylance
@@ -85,3 +87,7 @@ pytest -m "not httpbin"
 pytest -m "httpbin or smoke" # runs if marked as httpbin or smoke
 pytest -m "httpbin and smoke" # has to be marked for httpbin and smoke
 ```
+
+### Viewing the test report
+
+After you run the tests, the --html switch will generate a test report in the _reports/_ folder. We can right click on it and use **Live Server** to view the report in your browser.
