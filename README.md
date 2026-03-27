@@ -40,7 +40,7 @@ Create a directory in the root of your project called _.vscode/_ and create a fi
 }
 ```
 
-This will set up the UI to be the same as running tests from the command line.
+This will set up Test Explorer UI to be the same as running tests from the command line.
 
 ### Pylance
 
@@ -55,6 +55,8 @@ In order to set up Test Explorer UI you want to click the beaker icon to open it
 
 * Select _pytest_
 * Select the _tests_ folder
+
+Now you can run tests from the Test Explorer UI. You can also run a test from the editor using the icon on the left of the test function. If you hold the option key, the test icon will change to a debug icon.
 
 ### Running tests from the command line
 
