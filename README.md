@@ -112,11 +112,9 @@ To run tests for petstore.swagger.io you would use:
 pytest tests -vv -s -rA --color=yes --html=reports/test-report.html --self-contained-html -m "petstore"
 ```
 
-Just remember to set the environment variables from _**.env**_, i.e. edit the file then
-
-```bash
-set -a; source .env; set +a
-```
+Added load_dotenv() to conftest.py. This will automatically load the environment variables from the .env.
+So if you are running the command for httpbin tests, make sure the .env is set for httpbin.org and if you are running
+tests for petstore.swagger.io, make sure the .env is set for petstore.
 
 ### Viewing the test report
 
