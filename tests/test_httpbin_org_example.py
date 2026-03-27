@@ -2,8 +2,7 @@ import pytest
 
 @pytest.mark.httpbin
 def test_delete(client, url):
-    my_url = url("/delete")
-    response = client.delete(my_url)
+    response = client.delete(url("/delete"))
     assert response.status_code == 200
     data = response.json()
     assert data is not None
@@ -12,8 +11,7 @@ def test_delete(client, url):
 
 @pytest.mark.httpbin
 def test_get(client, url):
-    my_url = url("/get")
-    response = client.get(my_url)
+    response = client.get(url("/get"))
     assert response.status_code == 200
     data = response.json()
     assert data is not None
@@ -22,8 +20,7 @@ def test_get(client, url):
 
 @pytest.mark.httpbin
 def test_post(client, url):
-    my_url = url("/post")
-    response = client.post(my_url)
+    response = client.post(url("/post"))
     assert response.status_code == 200
     data = response.json()
     assert data is not None
@@ -32,10 +29,20 @@ def test_post(client, url):
 
 @pytest.mark.httpbin
 def test_patch(client, url):
-    my_url = url("/patch")
-    response = client.patch(my_url)
+    response = client.patch(url("/patch"))
     assert response.status_code == 200
     data = response.json()
     assert data is not None
     assert data["url"] == "https://httpbin.org/patch"
     assert data["headers"]["Host"] == "httpbin.org"
+
+@pytest.mark.httpbin
+def test_basic_auth(client, url):
+    username = "user"
+    password = "password"
+    response = client.get(url(f"/basic-auth/{username}/{password}"), auth=(username, password))
+    assert response.status_code == 200
+    data = response.json()
+    assert data is not None
+    assert data["user"] == username
+    assert data["authenticated"]
