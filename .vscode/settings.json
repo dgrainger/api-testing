@@ -1,0 +1,15 @@
+{
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.cwd": "${workspaceFolder}",
+    "python.testing.pytestArgs": [
+        "tests",
+        "-vv",
+        "-s",
+        "-rA",
+        "--color=yes",
+        "--html=reports/test-report.html",
+        "--self-contained-html"
+    ],
+    "python.envFile": "${workspaceFolder}/.env",
+}
