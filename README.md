@@ -3,8 +3,9 @@
 ## Environment
 
 ```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install python                 # I use brew to install python
-python -m venv venv                 # The last venv is the name of the directory to store my virtual Python environment, I use venv because it is in my .gitignore
+python -m venv venv                 # The last venv is name of directory to store virtual Python environment
 source venv/bin/activate
 pip install -r requirements.txt
 ```
