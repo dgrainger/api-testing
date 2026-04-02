@@ -119,3 +119,44 @@ tests for petstore.swagger.io, make sure the .env is set for petstore.
 ### Viewing the test report
 
 After you run the tests, the --html switch will generate a test report in the _reports/_ folder. We can right click on it and use **Live Server** to view the report in your browser.
+
+### Directory Structure
+
+```tree
+api-testing
+├── .vscode
+│   └── settings.json
+├── README.md
+├── reports
+│   └── test-report.html
+├── requirements.txt
+├── tests
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── pytest.ini
+│   ├── settings.py
+│   ├── test_httpbin_org_example.py
+│   ├── test_petstore_example.py
+│   └── pyvenv.cfg
+├── venv
+├── .env
+└── .gitignore
+```
+* .vscode/settings.json - VSCode settings for pytest, Test Explorer UI, .env files and terminal virtual environments
+* README.md - This file
+* reports - Folder for test reports, added to .gitignore so we don't commit test reports to the repository
+* requirements.txt - List of Python packages required
+* tests - Test files folder, settings.json tells Test Explorer UI this is where tests are located, pytest.ini which files are test files
+* venv - Python virtual environment, added to the .gitignore so we don't commit Python binaries to the repository
+* .env - Environment variables used by conftest.py to dynamically set the test environment
+* .gitignore - Files and folders to ignore when committing to the repository
+  * in addition to venv and reports folders, don't commit cached or dynamically generated files to the repository
+  * Normally, I'd add .vscode to the .gitignore as files in this directory are often how individuals configure their environment
+  * Also and OS generated files, e.g. .DS_Store from macOS
+
+#### Creating directory structure for README.md
+
+```bash
+brew install tree
+tree --gitignore >> README.md
+```
