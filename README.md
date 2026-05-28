@@ -122,23 +122,24 @@ After you run the tests, the --html switch will generate a test report in the _r
 ```tree
 api-testing
 ├── .vscode
-│   └── settings.json
-├── README.md
+│   └── settings.json
 ├── reports
-│   └── test-report.html
-├── requirements.txt
+│   └── test-report.html
 ├── tests
-│   ├── __init__.py
-│   ├── conftest.py
-│   ├── pytest.ini
-│   ├── settings.py
-│   ├── test_httpbin_org_example.py
-│   ├── test_petstore_example.py
-│   └── pyvenv.cfg
+|   ├── __init__.py
+│   ├── conftest.py
+│   ├── settings.py
+│   ├── test_httpbin_org_example.py
+│   └── test_petstore_example.py   
 ├── venv
 ├── .env
-└── .gitignore
+├── .gitignore
+├── API Testing Framework.pdf
+├── pytest.ini
+├── README.md
+└── requirements.txt
 ```
+
 * .vscode/settings.json - VSCode settings for pytest, Test Explorer UI, .env files and terminal virtual environments
 * README.md - This file
 * reports - Folder for test reports, added to .gitignore so we don't commit test reports to the repository
