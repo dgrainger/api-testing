@@ -2,3 +2,4 @@ pytest
 pytest-html
 httpx
 load_dotenv
+pytest-dotenv # needed for env_files in pytest.ini
