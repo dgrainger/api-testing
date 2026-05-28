@@ -31,16 +31,12 @@ Create a directory in the root of your project called _.vscode/_ and create a fi
     "python.testing.unittestEnabled": false,
     "python.testing.cwd": "${workspaceFolder}",
     "python.testing.pytestArgs": [
-        "tests",
-        "-vv",
-        "-s",
-        "-rA",
-        "--color=yes",
-        "--html=reports/test-report.html",
-        "--self-contained-html"
+        "-c",
+        "pytest.ini"
     ],
     "python.envFile": "${workspaceFolder}/.env",
-    "python.terminal.activateEnvironment": true
+    "python.terminal.activateEnvironment": true,
+    "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python"
 }
 ```
 
@@ -84,7 +80,7 @@ mkdir reports
 To actually run the tests:
 
 ```bash
-pytest tests -vv -s -rA --color=yes --html=reports/test-report.html --self-contained-html
+pytest -c pytest.ini
 ```
 
 You can also limit the tests you run via markers. For example, the tests that run against the site httpbin.org have been marked with the _httpbin_ marker. To run only those tests:
@@ -104,13 +100,13 @@ pytest -m "httpbin and smoke" # has to be marked for httpbin and smoke
 So if you are using the environment variables for httpbin.org, you can run using:
 
 ```bash
-pytest tests -vv -s -rA --color=yes --html=reports/test-report.html --self-contained-html -m "httpbin"
+pytest -c "pytest.ini" -m "httpbin"
 ```
 
 To run tests for petstore.swagger.io you would use:
 
 ```bash
-pytest tests -vv -s -rA --color=yes --html=reports/test-report.html --self-contained-html -m "petstore"
+pytest -c "pytest.ini" -m "petstore"
 ```
 
 Added load_dotenv() to conftest.py. This will automatically load the environment variables from the .env.
